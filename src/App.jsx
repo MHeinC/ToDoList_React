@@ -1,35 +1,50 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [inputData, setInputData] = useState("")
+  const [toDoArray, setToDoArray] = useState([])
+
+  function handleChange(e) {
+    setInputData(prevData => {
+      return e.target.value
+  })}
+
+  function handleClick(e) {
+    e.preventDefault()
+    if(!inputData === "") {
+      setToDoArray(prevState => {
+        return [...prevState, inputData]
+      })
+   }
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div>
+      <h1>To Do List</h1>
+      <form>
+        <input
+          value={inputData}
+          type="text"
+          name="newToDo"
+          placeholder="Add new To Do"
+          onChange={handleChange}
+        />
+        <button onClick={handleClick}>Add</button>
+      </form>
+      {
+        toDoArray.map(item => {
+          return (
+            <div>
+              <input
+                type="checkbox"
+              />
+              <div>{item}</div>
+            </div>
+        )})
+      }
+    </div>
   )
+
 }
 
 export default App
