@@ -1,0 +1,68 @@
+*, *::before, *::after { 
+    box-sizing: border-box;
+}
+
+body {
+    background:#343a40;
+    color: #f8f9fa;
+    margin: 0px 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    margin: 0;
+    gap: 5px;
+}
+
+form > input{
+    padding: 10px 15px;
+}
+
+form > input, button{
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 5px;
+}
+
+button, .function-icons{
+    cursor: pointer;
+}
+
+.todo-container{
+    display: flex;
+    justify-content: space-between;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px 1px #f8f9fa;
+    flex-direction: row;
+    padding: 20px 15px;
+    margin: 10px 0;
+    background-color: #f8f9fa;
+    color:#343a40;
+}
+
+.todo{
+    display: flex;
+    flex-direction: row;
+    word-break: break-all;
+    gap: 5px;
+} 
+
+.function-icons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+
+.function-icons > i, .todo > input {
+    width: 16px;
+}
+
+
+
