@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid'
 function App() {
   const [inputData, setInputData] = useState("")
   const [toDoArray, setToDoArray] = useState([])
+  // const [checked, setChecked] = useState(true)
 
   function handleChange(e) {
     setInputData(() => {
@@ -13,11 +14,13 @@ function App() {
 
   function handleClick(e) {
     e.preventDefault()
+    const id = uuidv4()
     if(inputData.length > 0) {
       setToDoArray(prevState => {
        return [...prevState, {
-        id: uuidv4(),
-        text: inputData
+        id: id,
+        text: inputData,
+        checked: false
        }]
       })
       setInputData(() => "")
@@ -26,8 +29,7 @@ function App() {
 
   function handleDelete(e) {
     const clickedToDo = e.target.id
-    console.log(clickedToDo)
-
+  
     const filterArray = toDoArray.filter(item => {
       if(item.id !== clickedToDo) {
         return true
@@ -36,7 +38,23 @@ function App() {
     })
 
     setToDoArray(filterArray)
+  }
 
+  function handleCheck(e) {
+    const click = e.target.id
+
+    const newArr = toDoArray.map(item => {
+      if(item.id === click) {
+         return {
+          id: item.id,
+          text: item.text,
+          checked: !item.checked
+         }
+      }else{
+        return item
+      }
+    })
+    setToDoArray(newArr)
   }
 
   return (
@@ -54,17 +72,26 @@ function App() {
       </form>
       {
         toDoArray.map(item => {
+
+          const styles = {
+            backgroundColor: item.checked ? "red" : "#f8f9fa"
+          }
+        
           return (
-            <div key={uuidv4()} className="todo-container">
+            <div key={uuidv4()} className="todo-container" style={styles}>
               <div className="todo">
                   <input
                     key={uuidv4()}
                     type="checkbox"
+                    checked= {item.checked}
+                    // defaultChecked={false}
+                    onChange={handleCheck}
+                    id={item.id}
                   />
                   {item.text}
               </div>
               <div className="function-icons">
-                <i className="fa-regular fa-pen-to-square"></i>
+                <i className="fa-regular fa-pen-to-square" id={item.id}></i>
                 <i className="fa-solid fa-trash-can" onClick={handleDelete} id={item.id}></i>
               </div>
             </div>

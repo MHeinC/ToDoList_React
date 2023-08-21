@@ -38,11 +38,9 @@ button, .function-icons{
     display: flex;
     justify-content: space-between;
     border-radius: 5px;
-    box-shadow: 1px 1px 1px 1px #f8f9fa;
     flex-direction: row;
     padding: 20px 15px;
     margin: 10px 0;
-    background-color: #f8f9fa;
     color:#343a40;
 }
 
