@@ -15,9 +15,9 @@ h1 {
 
 form {
     display: grid;
-    grid-template-columns: 5fr 1fr;
-    margin: 0;
+    grid-template-columns: 4fr 1fr;
     gap: 5px;
+    margin: 0;
 }
 
 form > input{
@@ -26,7 +26,7 @@ form > input{
 
 form > input, button{
     width: 100%;
-    padding: 15px 20px;
+    padding: 20px;
     border-radius: 5px;
 }
 
@@ -39,7 +39,7 @@ button, .function-icons{
     justify-content: space-between;
     border-radius: 5px;
     flex-direction: row;
-    padding: 20px 15px;
+    padding: 0px 10px;
     margin: 10px 0;
     color:#343a40;
 }
@@ -51,15 +51,34 @@ button, .function-icons{
     gap: 5px;
 } 
 
+.todo-text{
+    padding: 4px 10px;
+}
+
 .function-icons {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 5px;
+    gap: 15px;
 }
 
 .function-icons > i, .todo > input {
     width: 16px;
+}
+
+.start-icon{
+    margin-top: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.start-icon > i {
+   font-size: 4rem;
+}
+
+.edit-input{
+   
 }
 
 
