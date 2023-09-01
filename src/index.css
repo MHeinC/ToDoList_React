@@ -5,7 +5,7 @@
 body {
     background:#343a40;
     color: #f8f9fa;
-    margin: 0px 20px;
+    margin: 40px;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -13,18 +13,18 @@ h1 {
     text-align: center;
 }
 
-form {
+header > form {
     display: grid;
     grid-template-columns: 4fr 1fr;
     gap: 5px;
     margin: 0;
 }
 
-form > input{
+header > form > input {
     padding: 10px 15px;
 }
 
-form > input, button{
+header > form > input, button{
     width: 100%;
     padding: 20px;
     border-radius: 5px;
@@ -33,6 +33,8 @@ form > input, button{
 button, .function-icons{
     cursor: pointer;
 }
+
+/* Todo Items */
 
 .todo-container{
     display: flex;
@@ -44,16 +46,40 @@ button, .function-icons{
     color:#343a40;
 }
 
-.todo{
+.todo-item-text,
+.edit-form,
+.edit-input-text,
+.todo-item {
+    width: 100%;
+}
+
+.todo-item{
     display: flex;
     flex-direction: row;
     word-break: break-all;
     gap: 5px;
 } 
 
-.todo-text{
+.todo-item-text {
     padding: 4px 10px;
 }
+
+.todo-item > input[type=text], 
+.edit-input-text {
+    box-shadow: 0px 0px 14px 0.5px #999;
+}
+
+.edit-form {
+    margin: 16px 8px;
+}
+
+.edit-input-text {
+    font-size: 1rem;
+    padding: 6px 8px;
+    border: none;
+}
+
+/* Icons */
 
 .function-icons {
     display: flex;
@@ -62,7 +88,7 @@ button, .function-icons{
     gap: 15px;
 }
 
-.function-icons > i, .todo > input {
+.function-icons > i, .todo-item > input {
     width: 16px;
 }
 
@@ -77,9 +103,26 @@ button, .function-icons{
    font-size: 4rem;
 }
 
-.edit-input{
+
+@media (min-width:820px) {
+   body {
+    margin: 80px 100px;
+   }
+
+   h1 {
+    font-size: 2.4rem;
+    margin-bottom: 25px;
+   }
+
+   header {
+    margin-bottom: 25px;
+   }
+
+   header > form {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 8px;
+    margin: 0;
+}
    
 }
-
-
-
